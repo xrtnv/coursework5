@@ -1,3 +1,5 @@
+CREATE DATABASE hh_api;
+
 CREATE TABLE companies (
     company_id SERIAL PRIMARY KEY,
     company_name VARCHAR UNIQUE
