@@ -20,6 +20,25 @@ def main():
     # Сохраняем информацию в базу данных
     database.save_employers_and_vacancies(employers_dict, employers_all_vacancies)
 
+    # Выводим список компаний и количество вакансий в каждой компании
+    print("Список компаний и количество вакансий в компаниях:")
+    for row in database.get_companies_and_vacancies_count():
+        print(f"{row[0]} - {row[1]}")
+
+    # Выводим список всех вакансий с указанием названия компании
+    print("Список всех вакансий с указанием названия компании:")
+    for row in database.get_all_vacancies():
+        print(f"{row[0]} - {row[1]}")
+
+    # Выводим среднюю зарплату по вакансиям
+    print("Средняя зарплата по вакансиям:")
+    print(database.get_avg_salary())
+
+    # Выводим список всех вакансий, у которых зарплата выше средней по всем вакансиям
+    print("Список всех вакансий, у которых зарплата выше средней по всем вакансиям:")
+    for row in database.get_vacancies_with_higher_salary():
+        print(f"{row[0]}")
+
     # Задаем ключевое слово для поиска
     keyword = 'Разработчик'
 
